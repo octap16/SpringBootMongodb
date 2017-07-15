@@ -1,0 +1,56 @@
+buildscript {
+	ext {
+		springBootVersion = '1.5.4.RELEASE'
+	}
+	repositories {
+		mavenCentral()
+	}
+
+	dependencies {
+		classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+		 
+	}
+
+}
+
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'org.springframework.boot'
+jar {
+    baseName = 'spring-data-mongodb-example'
+    version =  '1.0'
+}
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = 1.8
+
+repositories {
+	mavenCentral()
+}
+configurations {
+    provided
+}
+sourceSets {
+    main { compileClasspath += configurations.provided }
+}
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+dependencies {
+	compile group: 'org.springframework.boot', name: 'spring-boot-starter-data-mongodb', version: '1.5.4.RELEASE'
+	testCompile('org.springframework.boot:spring-boot-starter-test')
+	// https://mvnrepository.com/artifact/org.json/json
+compile group: 'org.json', name: 'json', version: '20160810'
+
+  compile("org.springframework.boot:spring-boot-devtools")
+  // https://mvnrepository.com/artifact/javax.servlet/javax.servlet-api
+ provided 'javax.servlet:javax.servlet-api:3.1.0'
+// https://mvnrepository.com/artifact/org.springframework/spring-webmvc
+compile group: 'org.springframework', name: 'spring-webmvc', version: '4.3.9.RELEASE'
+  // https://mvnrepository.com/artifact/javax.inject/javax.inject
+compile group: 'javax.inject', name: 'javax.inject', version: '1'
+// https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-web
+compile group: 'org.springframework.boot', name: 'spring-boot-starter-web', version: '1.5.4.RELEASE'
+
+  
+	
+}
