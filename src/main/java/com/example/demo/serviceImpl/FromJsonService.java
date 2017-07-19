@@ -20,8 +20,6 @@ public class FromJsonService {
 		return tsmresponse;
 	}
 
-	
-
 	public String getUrl() throws MalformedURLException, IOException {
 		final InputStream is = new URL("https://poloniex.com/public?command=returnTicker").openStream();
 		return getStringFromInputStream(is);
